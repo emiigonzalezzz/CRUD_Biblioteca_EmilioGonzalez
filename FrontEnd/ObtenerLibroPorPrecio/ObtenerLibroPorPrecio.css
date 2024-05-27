@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.nav a {
+    text-decoration: none;
+    color: black;
+    padding: 14px 20px;
+    display: block;
+}
+.nav a:hover {
+    background-color: #ddd;
+}
+.nav a.active {
+    border-bottom: 2px solid black;
+}
+.tabla {
+    padding: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: black;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
