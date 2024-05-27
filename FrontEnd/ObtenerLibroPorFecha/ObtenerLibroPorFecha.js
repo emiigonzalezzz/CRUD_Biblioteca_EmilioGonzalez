@@ -1,9 +1,9 @@
 window.onload=()=>{
-    ObtenerLibro();
+    ObtenerLibroPorFecha();
  }
 
- async function ObtenerLibro(){ 
-    let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controlador/ControladorLibro.php?funcion=ObtenerLibro"
+ async function ObtenerLibroPorFecha(){ 
+    let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controlador/ControladorLibro.php?funcion=ObtenerLibroPorFecha"
     let consulta = await fetch(url);
     let datos = await consulta.json();
     console.log(datos);

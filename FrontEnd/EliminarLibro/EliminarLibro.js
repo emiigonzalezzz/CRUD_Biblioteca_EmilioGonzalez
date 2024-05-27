@@ -10,6 +10,22 @@ window.onload=()=>{
    MostrarLibro(datos)
     
  }
+ async function EliminarLibro(id){
+  let formData = new FormData();
+  formData.append("id", id);
+  alert(id);
+  let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controlador/ControladorLibro.php?funcion=EliminarLibro"
+  
+  let config = {
+      method: 'POST',
+      body: formData
+}
+  let respuesta = await fetch(url, config);
+  let datos = await respuesta.json();
+  console.log(datos);
+  location.reload();
+  alert(id);
+}
  
  function MostrarLibro(libro){
    let tbodyElement = document.querySelector("#cuerpoTablaUsuarios")
@@ -20,6 +36,7 @@ window.onload=()=>{
                <td>${libro[i].nombre}</td>
                <td>${libro[i].fecha}</td>
                <td>${libro[i].precio}</td>
+               <td><button onclick="EliminarLibro(${libro[i].id})">Eliminar</button></td>
        </tr>
        `;
 

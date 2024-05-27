@@ -30,11 +30,11 @@ function ObtenerLibro(){
     echo json_encode($resultado);
 }
 function ObtenerLibroPorFecha(){
-    $resultado = (new libro())->ObtenerLibroModelo();
+    $resultado = (new libro())->ObtenerLibroPorFechaModelo();
     echo json_encode($resultado);
 }
 function ObtenerLibroPorPrecio(){
-    $resultado = (new libro())->ObtenerLibroModelo();
+    $resultado = (new libro())->ObtenerLibroPorPrecioModelo();
     echo json_encode($resultado);
 }
 function CrearLibro(){
@@ -42,18 +42,18 @@ function CrearLibro(){
     $nombre = $_POST['nombre'];
     $fecha = $_POST['fecha'];
     $precio = $_POST['precio'];
-    $resultado = (new libro())->CrearLibro($id, $nombre, $fecha, $precio);
+    $resultado = (new libro())->CrearLibroModelo($id, $nombre, $fecha, $precio);
     echo json_encode($resultado);
 }
 
 function EliminarLibro(){
     $id = $_POST["id"];
-    $resultado = (new libro())->EliminarLibro($id);
+    $resultado = (new libro())->EliminarLibroModelo($id);
     echo json_encode($resultado);
 }
 function ModificarLibro(){
     $id = $_POST["id"];
-    $resultado = (new libro())->ModificarLibro($id);
+    $resultado = (new libro())->ModificarLibroModelo($id);
     echo json_encode($resultado);
 }
 
