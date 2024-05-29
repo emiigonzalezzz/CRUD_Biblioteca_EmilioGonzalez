@@ -1,44 +1,44 @@
 <?php
 
-require_once "../Conexion/Conexion.php";
+require_once "../Connection/Connection.php";
 
 class libro {
 
-    public function ObtenerLibroModelo(){
+    public function ObtenerLibroModel(){
         $connection = connection();
         $sql = "SELECT * FROM libro";
         $respuesta = $connection->query($sql);
         $libros = $respuesta->fetch_all(MYSQLI_ASSOC);
         return $libros;
     }
-    public function ObtenerLibroPorFechaModelo(){
+    public function ObtenerLibroPorFechaModel(){
         $connection = connection();
-        $sql = "SELECT * FROM libro ORDER BY DESC";
+        $sql = "SELECT * FROM libro ORDER BY fecha DESC";
         $respuesta = $connection->query($sql);
         $libros = $respuesta->fetch_all(MYSQLI_ASSOC);
         return $libros;
     }
-    public function ObtenerLibroPorPrecioModelo(){
+    public function ObtenerLibroPorPrecioModel(){
         $connection = connection();
-        $sql = "SELECT * FROM libro ORDER BY DESC";
+        $sql = "SELECT * FROM libro ORDER BY precio DESC";
         $respuesta = $connection->query($sql);
         $libros = $respuesta->fetch_all(MYSQLI_ASSOC);
         return $libros;
     }
-    public function CrearLibroModelo($id, $nombre, $fecha, $precio){
+    public function IngresarLibroModel($id, $nombre, $fecha, $precio){
         $sql = "INSERT INTO libro(id, nombre, fecha, precio) VALUES( '$id', '$nombre', '$fecha', '$precio');";
         $connection = connection();
         $respuesta = $connection->query($sql);
         return $respuesta;
     }
 
-    public function EliminarLibroModelo($id){
+    public function EliminarLibroModel($id){
         $sql = "DELETE FROM libro WHERE id = $id;";
         $connection = connection();
         $respuesta = $connection->query($sql);
         return $respuesta;
     }
-    public function ModificarLibroModelo($id, $nombre, $fecha, $precio){
+    public function ModificarLibroModel($id, $nombre, $fecha, $precio){
         $sql = "UPDATE libro SET nombre = '$nombre' , fecha = '$fecha' , precio = $precio WHERE id = $id";
         $connection = connection();
         $respuesta = $connection->query($sql);

@@ -3,7 +3,7 @@ window.onload=()=>{
  }
 
  async function ObtenerLibroPorFecha(){ 
-    let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controlador/ControladorLibro.php?funcion=ObtenerLibroPorFecha"
+    let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controller/LibroController.php?function=ObtenerLibroPorFecha"
     let consulta = await fetch(url);
     let datos = await consulta.json();
     console.log(datos);
@@ -12,7 +12,7 @@ window.onload=()=>{
  }
  
  function MostrarLibro(libro){
-   let tbodyElement = document.querySelector("#cuerpoTablaUsuarios")
+   let tbodyElement = document.querySelector("#tBodyLibros")
    for (let i=0; i < libro.length; i++){
        tbodyElement.innerHTML+= `
            <tr>

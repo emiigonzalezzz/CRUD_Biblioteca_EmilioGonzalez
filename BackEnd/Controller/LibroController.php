@@ -1,10 +1,10 @@
 <?php
 
-require_once '../Modelo/ModeloLibro.php';
+require_once '../Model/LibroDAO.php';
 
-$funcion = $_GET['funcion'];
+$function = $_GET['function'];
 
-switch ($funcion){
+switch ($function){
     case "ObtenerLibro":
         ObtenerLibro();
     break;
@@ -14,8 +14,8 @@ switch ($funcion){
     case "ObtenerLibroPorPrecio":
         ObtenerLibroPorPrecio();
     break;
-    case "CrearLibro":
-        CrearLibro();
+    case "IngresarLibro":
+        IngresarLibro();
     break;
     case "EliminarLibro":
         EliminarLibro();
@@ -26,29 +26,29 @@ switch ($funcion){
 }
 
 function ObtenerLibro(){
-    $resultado = (new libro())->ObtenerLibroModelo();
+    $resultado = (new libro())->ObtenerLibroModel();
     echo json_encode($resultado);
 }
 function ObtenerLibroPorFecha(){
-    $resultado = (new libro())->ObtenerLibroPorFechaModelo();
+    $resultado = (new libro())->ObtenerLibroPorFechaModel();
     echo json_encode($resultado);
 }
 function ObtenerLibroPorPrecio(){
-    $resultado = (new libro())->ObtenerLibroPorPrecioModelo();
+    $resultado = (new libro())->ObtenerLibroPorPrecioModel();
     echo json_encode($resultado);
 }
-function CrearLibro(){
+function IngresarLibro(){
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
     $fecha = $_POST['fecha'];
     $precio = $_POST['precio'];
-    $resultado = (new libro())->CrearLibroModelo($id, $nombre, $fecha, $precio);
+    $resultado = (new libro())->IngresarLibroModel($id, $nombre, $fecha, $precio);
     echo json_encode($resultado);
 }
 
 function EliminarLibro(){
     $id = $_POST["id"];
-    $resultado = (new libro())->EliminarLibroModelo($id);
+    $resultado = (new libro())->EliminarLibroModel($id);
     echo json_encode($resultado);
 }
 function ModificarLibro(){
@@ -56,7 +56,7 @@ function ModificarLibro(){
     $nombre = $_POST['nombre'];
     $fecha = $_POST['fecha'];
     $precio = $_POST['precio'];
-    $resultado = (new libro())->ModificarLibroModelo($id, $nombre, $fecha, $precio);
+    $resultado = (new libro())->ModificarLibroModel($id, $nombre, $fecha, $precio);
     echo json_encode($resultado);
 }
 

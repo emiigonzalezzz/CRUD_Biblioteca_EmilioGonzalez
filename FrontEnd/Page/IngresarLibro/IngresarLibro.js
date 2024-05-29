@@ -5,7 +5,7 @@ window.onload=()=>{
     formElement.onsubmit = async (e) =>{
         e.preventDefault()
         let formData = new FormData(formElement);
-        let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controlador/ControladorLibro.php?funcion=CrearLibro"
+        let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controller/LibroController.php?function=IngresarLibro"
 
         let config = {
                 method: 'POST',

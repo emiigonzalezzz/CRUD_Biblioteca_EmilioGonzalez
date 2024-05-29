@@ -1,9 +1,9 @@
 window.onload=()=>{
-    ObtenerLibroPorPrecio();
+    ObtenerLibro();
  }
 
- async function ObtenerLibroPorPrecio(){ 
-    let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controlador/ControladorLibro.php?funcion=ObtenerLibroPorPrecio"
+ async function ObtenerLibro(){ 
+    let url = "http://localhost/CRUD_Biblioteca_EmilioGonzalez/BackEnd/Controller/LibroController.php?function=ObtenerLibro"
     let consulta = await fetch(url);
     let datos = await consulta.json();
     console.log(datos);
@@ -12,7 +12,7 @@ window.onload=()=>{
  }
  
  function MostrarLibro(libro){
-   let tbodyElement = document.querySelector("#cuerpoTablaUsuarios")
+   let tbodyElement = document.querySelector("#tBodyLibros")
    for (let i=0; i < libro.length; i++){
        tbodyElement.innerHTML+= `
            <tr>
@@ -23,5 +23,5 @@ window.onload=()=>{
        </tr>
        `;
 
-}
+    }
 }
