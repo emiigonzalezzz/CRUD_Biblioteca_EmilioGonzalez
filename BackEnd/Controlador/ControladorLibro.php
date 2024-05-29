@@ -52,8 +52,11 @@ function EliminarLibro(){
     echo json_encode($resultado);
 }
 function ModificarLibro(){
-    $id = $_POST["id"];
-    $resultado = (new libro())->ModificarLibroModelo($id);
+    $id = $_POST['id'];
+    $nombre = $_POST['nombre'];
+    $fecha = $_POST['fecha'];
+    $precio = $_POST['precio'];
+    $resultado = (new libro())->ModificarLibroModelo($id, $nombre, $fecha, $precio);
     echo json_encode($resultado);
 }
 

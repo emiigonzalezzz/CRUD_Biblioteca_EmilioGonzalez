@@ -38,8 +38,8 @@ class libro {
         $respuesta = $connection->query($sql);
         return $respuesta;
     }
-    public function ModificarLibroModelo($id){
-        $sql = "UPDATE libro WHERE id = $id;";
+    public function ModificarLibroModelo($id, $nombre, $fecha, $precio){
+        $sql = "UPDATE libro SET nombre = '$nombre' , fecha = '$fecha' , precio = $precio WHERE id = $id";
         $connection = connection();
         $respuesta = $connection->query($sql);
         return $respuesta;
