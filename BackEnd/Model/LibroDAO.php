@@ -6,7 +6,7 @@ class libro {
 
     public function ObtenerLibroModel(){
         $connection = connection();
-        $sql = "SELECT * FROM libro";
+        $sql = "SELECT * FROM libro;";
         $respuesta = $connection->query($sql);
         $libros = $respuesta->fetch_all(MYSQLI_ASSOC);
         return $libros;
