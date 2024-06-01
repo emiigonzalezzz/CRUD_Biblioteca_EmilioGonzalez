@@ -25,8 +25,8 @@ class libro {
         $libros = $respuesta->fetch_all(MYSQLI_ASSOC);
         return $libros;
     }
-    public function IngresarLibroModel($id, $nombre, $fecha, $precio){
-        $sql = "INSERT INTO libro(id, nombre, fecha, precio) VALUES( '$id', '$nombre', '$fecha', '$precio');";
+    public function IngresarLibroModel($nombre, $fecha, $precio){
+        $sql = "INSERT INTO libro(nombre, fecha, precio) VALUES('$nombre', '$fecha', '$precio');";
         $connection = connection();
         $respuesta = $connection->query($sql);
         return $respuesta;

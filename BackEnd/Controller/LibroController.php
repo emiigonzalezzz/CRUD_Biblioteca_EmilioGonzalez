@@ -38,11 +38,10 @@ function ObtenerLibroPorPrecio(){
     echo json_encode($resultado);
 }
 function IngresarLibro(){
-    $id = $_POST['id'];
     $nombre = $_POST['nombre'];
     $fecha = $_POST['fecha'];
     $precio = $_POST['precio'];
-    $resultado = (new libro())->IngresarLibroModel($id, $nombre, $fecha, $precio);
+    $resultado = (new libro())->IngresarLibroModel($nombre, $fecha, $precio);
     echo json_encode($resultado);
 }
 

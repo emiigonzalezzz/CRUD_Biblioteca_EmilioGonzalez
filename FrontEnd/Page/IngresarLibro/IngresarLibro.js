@@ -20,6 +20,8 @@ window.onload=()=>{
             console.log("Ya existen");
         }else{
             console.log("Insertado conrrectamente");
+            alert("Libro ingresado correctamente");
+            document.getElementById("agregar").reset();
         }
     }
 }
