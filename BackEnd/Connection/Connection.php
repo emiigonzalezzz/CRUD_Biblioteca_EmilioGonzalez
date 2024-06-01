@@ -8,7 +8,7 @@ function connection(){
     try{
         $host = "localhost";
         $usr = "root";
-        $pass = "56067983";
+        $pass = "";
         $bd = "biblioteca";
         $puerto = "3306";
         $mysqli = new mysqli($host, $usr, $pass, $bd, $puerto);
