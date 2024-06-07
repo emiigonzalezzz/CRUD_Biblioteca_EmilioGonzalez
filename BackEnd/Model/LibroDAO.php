@@ -2,47 +2,45 @@
 
 require_once "../Connection/Connection.php";
 
-class libro {
+class libro
+{
 
-    public function ObtenerLibroModel(){
+    public function ObtenerLibroModel()
+    {
         $connection = connection();
         $sql = "SELECT * FROM libro;";
         $respuesta = $connection->query($sql);
         $libros = $respuesta->fetch_all(MYSQLI_ASSOC);
         return $libros;
     }
-    public function ObtenerLibroPorFechaModel(){
+    public function ObtenerOrdenadosModel($columna, $orden)
+    {
         $connection = connection();
-        $sql = "SELECT * FROM libro ORDER BY fecha DESC";
+        $sql = "SELECT * FROM libro ORDER BY $columna $orden";
         $respuesta = $connection->query($sql);
         $libros = $respuesta->fetch_all(MYSQLI_ASSOC);
         return $libros;
     }
-    public function ObtenerLibroPorPrecioModel(){
-        $connection = connection();
-        $sql = "SELECT * FROM libro ORDER BY precio DESC";
-        $respuesta = $connection->query($sql);
-        $libros = $respuesta->fetch_all(MYSQLI_ASSOC);
-        return $libros;
-    }
-    public function IngresarLibroModel($nombre, $fecha, $precio){
+    public function IngresarLibroModel($nombre, $fecha, $precio)
+    {
         $sql = "INSERT INTO libro(nombre, fecha, precio) VALUES('$nombre', '$fecha', '$precio');";
         $connection = connection();
         $respuesta = $connection->query($sql);
         return $respuesta;
     }
 
-    public function EliminarLibroModel($id){
+    public function EliminarLibroModel($id)
+    {
         $sql = "DELETE FROM libro WHERE id = $id;";
         $connection = connection();
         $respuesta = $connection->query($sql);
         return $respuesta;
     }
-    public function ModificarLibroModel($id, $nombre, $fecha, $precio){
+    public function ModificarLibroModel($id, $nombre, $fecha, $precio)
+    {
         $sql = "UPDATE libro SET nombre = '$nombre' , fecha = '$fecha' , precio = $precio WHERE id = $id";
         $connection = connection();
         $respuesta = $connection->query($sql);
         return $respuesta;
     }
 }
-?>

@@ -4,40 +4,39 @@ require_once '../Model/LibroDAO.php';
 
 $function = $_GET['function'];
 
-switch ($function){
+switch ($function) {
     case "ObtenerLibro":
         ObtenerLibro();
-    break;
-    case "ObtenerLibroPorFecha":
-        ObtenerLibroPorFecha();
-    break;
-    case "ObtenerLibroPorPrecio":
-        ObtenerLibroPorPrecio();
-    break;
+        break;
+    case "ObtenerOrdenados":
+        ObtenerOrdenados();
+        break;
     case "IngresarLibro":
         IngresarLibro();
-    break;
+        break;
     case "EliminarLibro":
         EliminarLibro();
-    break;
+        break;
     case "ModificarLibro":
         ModificarLibro();
-    break;
+        break;
 }
 
-function ObtenerLibro(){
+function ObtenerLibro()
+{
     $resultado = (new libro())->ObtenerLibroModel();
     echo json_encode($resultado);
 }
-function ObtenerLibroPorFecha(){
-    $resultado = (new libro())->ObtenerLibroPorFechaModel();
+function ObtenerOrdenados()
+{
+    $columna = $_POST['columna'];
+    $orden = $_POST['orden'];
+    $resultado = (new libro())->ObtenerOrdenadosModel($columna, $orden);
     echo json_encode($resultado);
 }
-function ObtenerLibroPorPrecio(){
-    $resultado = (new libro())->ObtenerLibroPorPrecioModel();
-    echo json_encode($resultado);
-}
-function IngresarLibro(){
+
+function IngresarLibro()
+{
     $nombre = $_POST['nombre'];
     $fecha = $_POST['fecha'];
     $precio = $_POST['precio'];
@@ -45,12 +44,14 @@ function IngresarLibro(){
     echo json_encode($resultado);
 }
 
-function EliminarLibro(){
+function EliminarLibro()
+{
     $id = $_POST["id"];
     $resultado = (new libro())->EliminarLibroModel($id);
     echo json_encode($resultado);
 }
-function ModificarLibro(){
+function ModificarLibro()
+{
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
     $fecha = $_POST['fecha'];
@@ -58,6 +59,3 @@ function ModificarLibro(){
     $resultado = (new libro())->ModificarLibroModel($id, $nombre, $fecha, $precio);
     echo json_encode($resultado);
 }
-
-
-?>
